@@ -5,6 +5,7 @@ RUN apk add --no-cache \
     g++ \
     make \
     icu-dev \
+    libjpeg-turbo-dev \
     libpng-dev \
     libzip-dev
 
@@ -13,6 +14,9 @@ RUN pecl install \
 
 RUN docker-php-ext-enable \
     redis
+
+RUN docker-php-ext-configure \
+    gd --with-jpeg
 
 RUN docker-php-ext-install \
     exif \
