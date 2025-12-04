@@ -22,3 +22,5 @@ RUN docker-php-ext-install \
     zip
 
 COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
